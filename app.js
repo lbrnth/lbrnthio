@@ -12,7 +12,16 @@ app.set('views', viewsPath);
 hbs.registerPartials(componentsPath);
 
 app.get('', (req, res) => {
-    res.render('index')
+    res.render('index', {
+        title: 'coming soon...'
+    });
+});
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: 404,
+        errorMessage: 'Page Not Found'
+    });
 });
 
 app.listen(3000, () => {
